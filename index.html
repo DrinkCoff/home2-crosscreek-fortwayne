@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME2 SUITES, FORT WAYNE, IN - Drawing Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            max-height: 0;
+        }
+        .section-content.active {
+            max-height: 4000px;
+            display: block;
+        }
+        .section-header svg { transition: transform 0.2s ease-out; }
+        .section-header.active svg { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl bg-gray-800 rounded-lg shadow-xl mt-8 mb-8">
+        <header class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-50">HOME2 SUITES, FORT WAYNE, IN</h1>
+            <p class="text-md text-gray-300 mt-1">Cross Creek Blvd, Fort Wayne, IN</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="md:col-span-2 bg-gray-700 p-6 rounded-lg shadow-inner">
+                <h3 class="font-bold text-lg text-gray-50 mb-3 border-b border-gray-600 pb-2">Project Information</h3>
+                <div class="space-y-2 text-sm text-gray-200">
+                    <p><strong>Owner:</strong> VJAY PATEL</p>
+                    <p><strong>Architect:</strong> MAUST ARCHITECTURAL SERVICES, INC</p>
+                    <p><strong>Civil Engineer:</strong> ENGINEERING RESOURCES, INC.</p>
+                    <p><strong>Interior Design Set:</strong> </p>
+                    <p>
+                        <strong>Hotel Full Set:</strong> 
+                        <a href="drawings\Set 5-15-26.pdf" target="_blank" class="text-blue-400 hover:text-blue-200 transition underline font-medium">View Full Set of Drawings</a>
+                    </p>
+                </div>
+            </div>
+            <div class="bg-gray-700 p-6 rounded-lg shadow-inner">
+                <h3 class="font-bold text-lg text-gray-50 mb-3 border-b border-gray-600 pb-2">Location Information</h3>
+                <div class="space-y-2 text-sm text-gray-200">
+                    <p><strong>Address:</strong> Cross Creek Blvd, Fort Wayne, IN</p>
+                    <p><strong>Map:</strong> <a href="https://maps.google.com/?q=Cross+Creek+Blvd,+Fort+Wayne,+IN" target="_blank" class="text-blue-400 hover:text-blue-200 transition underline font-medium">View on Google Maps</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <input type="text" id="searchInput" onkeyup="filterDrawings()" placeholder="Search for any drawing, sheet number, or schedule..." class="w-full p-4 border border-gray-600 rounded-lg shadow-inner bg-gray-700 text-gray-100 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+        </div>
+
+        <main id="drawing-container" class="space-y-4"></main>
+    </div>
+
+    <script>
+        const rawSpreadsheetData = [
+            [
+                        "Category",
+                        "Subcategory",
+                        "Shortname",
+                        "Name",
+                        "Description",
+                        "Filename",
+                        "Pagenumber",
+                        "SearchPool"
+            ],
+            [
+                        "GENERAL / COVER",
+                        "DETAILS & OVERALL",
+                        "A001",
+                        "PROJECT INDEX AND JOB INFORMATION",
+                        "",
+                        "extracted_sheets\\A001_PROJECT_INDEX_AND_JOB_INFORMATION.pdf",
+                        "1",
+                        "A001 PROJECT INDEX AND JOB INFORMATION DETAILS & OVERALL GENERAL / COVER"
+            ],
+            [
+                        "CIVIL (C-Sheets)",
+                        "SITE PLAN",
+                        "C101",
+                        "ARCHITECTURAL SITE PLAN",
+                        "",
+                        "extracted_sheets\\C101_ARCHITECTURAL_SITE_PLAN.pdf",
+                        "1",
+                        "C101 ARCHITECTURAL SITE PLAN SITE PLAN CIVIL (C-SHEETS)"
+            ],
+            [
+                        "LIFE SAFETY PLAN",
+                        "FLOOR PLAN",
+                        "LS101",
+                        "FIRST FLOOR LIFE SAFETY PLAN",
+                        "",
+                        "extracted_sheets\\LS101_FIRST_FLOOR_LIFE_SAFETY_PLAN.pdf",
+                        "1",
+                        "LS101 FIRST FLOOR LIFE SAFETY PLAN FLOOR PLAN LIFE SAFETY PLAN"
+            ],
+            [
+                        "LIFE SAFETY PLAN",
+                        "FLOOR PLAN",
+                        "LS102",
+                        "SECOND FLOOR LIFE SAFETY PLAN",
+                        "",
+                        "extracted_sheets\\LS102_SECOND_FLOOR_LIFE_SAFETY_PLAN.pdf",
+                        "1",
+                        "LS102 SECOND FLOOR LIFE SAFETY PLAN FLOOR PLAN LIFE SAFETY PLAN"
+            ],
+            [
+                        "LIFE SAFETY PLAN",
+                        "FLOOR PLAN",
+                        "LS103",
+                        "THIRD FLOOR LIFE SAFETY PLAN",
+                        "",
+                        "extracted_sheets\\LS103_THIRD_FLOOR_LIFE_SAFETY_PLAN.pdf",
+                        "1",
+                        "LS103 THIRD FLOOR LIFE SAFETY PLAN FLOOR PLAN LIFE SAFETY PLAN"
+            ],
+            [
+                        "LIFE SAFETY PLAN",
+                        "FLOOR PLAN",
+                        "LS104",
+                        "FOURTH FLOOR LIFE SAFETY PLAN",
+                        "",
+                        "extracted_sheets\\LS104_FOURTH_FLOOR_LIFE_SAFETY_PLAN.pdf",
+                        "1",
+                        "LS104 FOURTH FLOOR LIFE SAFETY PLAN FLOOR PLAN LIFE SAFETY PLAN"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "DETAILS & OVERALL",
+                        "S001",
+                        "GENERAL NOTES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\S001_GENERAL_NOTES.pdf",
+                        "1",
+                        "S001 GENERAL NOTES DETAILS & OVERALL STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "SITE PLAN",
+                        "S101",
+                        "FOUNDATION PLAN",
+                        "",
+                        "extracted_sheets\\S101_FOUNDATION_PLAN.pdf",
+                        "1",
+                        "S101 FOUNDATION PLAN SITE PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "DETAILS & OVERALL",
+                        "S102",
+                        "FOUNDATION DETAILS",
+                        "",
+                        "extracted_sheets\\S102_FOUNDATION_DETAILS.pdf",
+                        "1",
+                        "S102 FOUNDATION DETAILS DETAILS & OVERALL STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "FLOOR PLAN",
+                        "S201",
+                        "FIRST FLOOR STEEL PLAN",
+                        "",
+                        "extracted_sheets\\S201_FIRST_FLOOR_STEEL_PLAN.pdf",
+                        "1",
+                        "S201 FIRST FLOOR STEEL PLAN FLOOR PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "FLOOR PLAN",
+                        "S202",
+                        "SECOND FLOOR FRAMING PLAN",
+                        "",
+                        "extracted_sheets\\S202_SECOND_FLOOR_FRAMING_PLAN.pdf",
+                        "1",
+                        "S202 SECOND FLOOR FRAMING PLAN FLOOR PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "FLOOR PLAN",
+                        "S203",
+                        "THIRD FLOOR FRAMING PLAN",
+                        "",
+                        "extracted_sheets\\S203_THIRD_FLOOR_FRAMING_PLAN.pdf",
+                        "1",
+                        "S203 THIRD FLOOR FRAMING PLAN FLOOR PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "FLOOR PLAN",
+                        "S204",
+                        "FOURTH FLOOR FRAMING PLAN",
+                        "",
+                        "extracted_sheets\\S204_FOURTH_FLOOR_FRAMING_PLAN.pdf",
+                        "1",
+                        "S204 FOURTH FLOOR FRAMING PLAN FLOOR PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "SITE PLAN",
+                        "S301",
+                        "ROOF FRAMING PLAN",
+                        "",
+                        "extracted_sheets\\S301_ROOF_FRAMING_PLAN.pdf",
+                        "1",
+                        "S301 ROOF FRAMING PLAN SITE PLAN STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "WALL DETAILS",
+                        "S401",
+                        "SHEAR WALL DETAILS",
+                        "",
+                        "extracted_sheets\\S401_SHEAR_WALL_DETAILS.pdf",
+                        "1",
+                        "S401 SHEAR WALL DETAILS WALL DETAILS STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "WALL DETAILS",
+                        "S402",
+                        "SHEAR WALL DETAILS",
+                        "",
+                        "extracted_sheets\\S402_SHEAR_WALL_DETAILS.pdf",
+                        "1",
+                        "S402 SHEAR WALL DETAILS WALL DETAILS STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "WALL DETAILS",
+                        "S403",
+                        "PARTY WALL DETAILS",
+                        "",
+                        "extracted_sheets\\S403_PARTY_WALL_DETAILS.pdf",
+                        "1",
+                        "S403 PARTY WALL DETAILS WALL DETAILS STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "S501",
+                        "STEEL ELEVATIONS",
+                        "",
+                        "extracted_sheets\\S501_STEEL_ELEVATIONS.pdf",
+                        "1",
+                        "S501 STEEL ELEVATIONS INTERIOR ELEVATIONS STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "STRUCTURAL (S-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "S502",
+                        "STEEL ELEVATIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\S502_STEEL_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "S502 STEEL ELEVATIONS AND DETAILS INTERIOR ELEVATIONS STRUCTURAL (S-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A101",
+                        "FIRST FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A101_FIRST_FLOOR_PLAN.pdf",
+                        "1",
+                        "A101 FIRST FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A102",
+                        "SECOND FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A102_SECOND_FLOOR_PLAN.pdf",
+                        "1",
+                        "A102 SECOND FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A103",
+                        "THIRD FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A103_THIRD_FLOOR_PLAN.pdf",
+                        "1",
+                        "A103 THIRD FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A104",
+                        "FOURTH FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A104_FOURTH_FLOOR_PLAN.pdf",
+                        "1",
+                        "A104 FOURTH FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "SITE PLAN",
+                        "A105",
+                        "ROOF PLAN",
+                        "",
+                        "extracted_sheets\\A105_ROOF_PLAN.pdf",
+                        "1",
+                        "A105 ROOF PLAN SITE PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A151",
+                        "ENLARGED FIRST FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A151_ENLARGED_FIRST_FLOOR_PLAN.pdf",
+                        "1",
+                        "A151 ENLARGED FIRST FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A152",
+                        "ENLARGED FIRST FLOOR PLAN",
+                        "",
+                        "extracted_sheets\\A152_ENLARGED_FIRST_FLOOR_PLAN.pdf",
+                        "1",
+                        "A152 ENLARGED FIRST FLOOR PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A153",
+                        "ENLARGED FIRST AND UPPER FLOOR PLANS",
+                        "",
+                        "extracted_sheets\\A153_ENLARGED_FIRST_AND_UPPER_FLOOR_PLANS.pdf",
+                        "1",
+                        "A153 ENLARGED FIRST AND UPPER FLOOR PLANS FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A161",
+                        "INTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A161_INTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A161 INTERIOR ELEVATIONS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A162",
+                        "INTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A162_INTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A162 INTERIOR ELEVATIONS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A163",
+                        "INTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A163_INTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A163 INTERIOR ELEVATIONS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A164",
+                        "POOL ELEVATIONS & DETAILS",
+                        "",
+                        "extracted_sheets\\A164_POOL_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A164 POOL ELEVATIONS & DETAILS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "EXTERIOR ELEVATIONS",
+                        "A201",
+                        "COLOR EXTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A201_COLOR_EXTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A201 COLOR EXTERIOR ELEVATIONS EXTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "EXTERIOR ELEVATIONS",
+                        "A201",
+                        "EXTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A201_EXTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A201 EXTERIOR ELEVATIONS EXTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "EXTERIOR ELEVATIONS",
+                        "A202",
+                        "COLOR EXTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A202_COLOR_EXTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A202 COLOR EXTERIOR ELEVATIONS EXTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "EXTERIOR ELEVATIONS",
+                        "A202",
+                        "EXTERIOR ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A202_EXTERIOR_ELEVATIONS.pdf",
+                        "1",
+                        "A202 EXTERIOR ELEVATIONS EXTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A301",
+                        "FULL BUILDING SECTION",
+                        "",
+                        "extracted_sheets\\A301_FULL_BUILDING_SECTION.pdf",
+                        "1",
+                        "A301 FULL BUILDING SECTION DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A401",
+                        "ENLARGED BUILDING SECTIONS",
+                        "",
+                        "extracted_sheets\\A401_ENLARGED_BUILDING_SECTIONS.pdf",
+                        "1",
+                        "A401 ENLARGED BUILDING SECTIONS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A402",
+                        "ENLARGED BUILDING SECTIONS",
+                        "",
+                        "extracted_sheets\\A402_ENLARGED_BUILDING_SECTIONS.pdf",
+                        "1",
+                        "A402 ENLARGED BUILDING SECTIONS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A403",
+                        "ELEVATOR SECTION",
+                        "",
+                        "extracted_sheets\\A403_ELEVATOR_SECTION.pdf",
+                        "1",
+                        "A403 ELEVATOR SECTION DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "SITE PLAN",
+                        "A404",
+                        "STAIR PLANS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A404_STAIR_PLANS_AND_DETAILS.pdf",
+                        "1",
+                        "A404 STAIR PLANS AND DETAILS SITE PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A405",
+                        "STAIR SECTION",
+                        "",
+                        "extracted_sheets\\A405_STAIR_SECTION.pdf",
+                        "1",
+                        "A405 STAIR SECTION DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A406",
+                        "MISCELLANEOUS SECTIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A406_MISCELLANEOUS_SECTIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A406 MISCELLANEOUS SECTIONS AND DETAILS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A407",
+                        "CANOPY AND PERGOLA SECTIONS",
+                        "",
+                        "extracted_sheets\\A407_CANOPY_AND_PERGOLA_SECTIONS.pdf",
+                        "1",
+                        "A407 CANOPY AND PERGOLA SECTIONS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A408",
+                        "CANOPY AND PERGOLA SECTIONS",
+                        "",
+                        "extracted_sheets\\A408_CANOPY_AND_PERGOLA_SECTIONS.pdf",
+                        "1",
+                        "A408 CANOPY AND PERGOLA SECTIONS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A409",
+                        "DUMPSTER PLAN AND ELEVATION",
+                        "",
+                        "extracted_sheets\\A409_DUMPSTER_PLAN_AND_ELEVATION.pdf",
+                        "1",
+                        "A409 DUMPSTER PLAN AND ELEVATION INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A410",
+                        "DUMPSTER SECTION AND ELEVATION",
+                        "",
+                        "extracted_sheets\\A410_DUMPSTER_SECTION_AND_ELEVATION.pdf",
+                        "1",
+                        "A410 DUMPSTER SECTION AND ELEVATION INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A411",
+                        "EXTERIOR DETAILS & TRELLIS",
+                        "",
+                        "extracted_sheets\\A411_EXTERIOR_DETAILS_AND_TRELLIS.pdf",
+                        "1",
+                        "A411 EXTERIOR DETAILS & TRELLIS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A412",
+                        "FIRE PIT PLAN, SECTION, AND ELEVATION",
+                        "",
+                        "extracted_sheets\\A412_FIRE_PIT_PLAN_SECTION_AND_ELEVATION.pdf",
+                        "1",
+                        "A412 FIRE PIT PLAN, SECTION, AND ELEVATION INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A413",
+                        "LINEN CHUTE SECTION AND DETAILS",
+                        "",
+                        "extracted_sheets\\A413_LINEN_CHUTE_SECTION_AND_DETAILS.pdf",
+                        "1",
+                        "A413 LINEN CHUTE SECTION AND DETAILS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "WALL DETAILS",
+                        "A450",
+                        "WALL TYPES",
+                        "",
+                        "extracted_sheets\\A450_WALL_TYPES.pdf",
+                        "1",
+                        "A450 WALL TYPES WALL DETAILS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A451",
+                        "FIRST FLOOR WALL TYPES PLAN",
+                        "",
+                        "extracted_sheets\\A451_FIRST_FLOOR_WALL_TYPES_PLAN.pdf",
+                        "1",
+                        "A451 FIRST FLOOR WALL TYPES PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A452",
+                        "UPPER FLOOR WALL TYPES PLAN",
+                        "",
+                        "extracted_sheets\\A452_UPPER_FLOOR_WALL_TYPES_PLAN.pdf",
+                        "1",
+                        "A452 UPPER FLOOR WALL TYPES PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A453",
+                        "FLOOR AND PIPE PENETRATION DETAILS",
+                        "",
+                        "extracted_sheets\\A453_FLOOR_AND_PIPE_PENETRATION_DETAILS.pdf",
+                        "1",
+                        "A453 FLOOR AND PIPE PENETRATION DETAILS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A454",
+                        "FLOOR AND PIPE PENETRATION DETAILS",
+                        "",
+                        "extracted_sheets\\A454_FLOOR_AND_PIPE_PENETRATION_DETAILS.pdf",
+                        "1",
+                        "A454 FLOOR AND PIPE PENETRATION DETAILS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A500",
+                        "TYPICAL MOUNTING HEIGHTS",
+                        "",
+                        "extracted_sheets\\A500_TYPICAL_MOUNTING_HEIGHTS.pdf",
+                        "1",
+                        "A500 TYPICAL MOUNTING HEIGHTS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A501",
+                        "KING STUDIO",
+                        "",
+                        "extracted_sheets\\A501_KING_STUDIO.pdf",
+                        "1",
+                        "A501 KING STUDIO DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A502",
+                        "ACCESSIBLE KING STUDIO",
+                        "",
+                        "extracted_sheets\\A502_ACCESSIBLE_KING_STUDIO.pdf",
+                        "1",
+                        "A502 ACCESSIBLE KING STUDIO DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A503",
+                        "DOUBLE QUEEN STUDIO",
+                        "",
+                        "extracted_sheets\\A503_DOUBLE_QUEEN_STUDIO.pdf",
+                        "1",
+                        "A503 DOUBLE QUEEN STUDIO DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A504",
+                        "ACCESSIBLE DOUBLE QUEEN STUDIO",
+                        "",
+                        "extracted_sheets\\A504_ACCESSIBLE_DOUBLE_QUEEN_STUDIO.pdf",
+                        "1",
+                        "A504 ACCESSIBLE DOUBLE QUEEN STUDIO DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A505",
+                        "GUESTROOM BLOCKING DIAGRAM",
+                        "",
+                        "extracted_sheets\\A505_GUESTROOM_BLOCKING_DIAGRAM.pdf",
+                        "1",
+                        "A505 GUESTROOM BLOCKING DIAGRAM DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A506",
+                        "ONE BEDROOM STUDIO 'B'",
+                        "",
+                        "extracted_sheets\\A506_ONE_BEDROOM_STUDIO_B.pdf",
+                        "1",
+                        "A506 ONE BEDROOM STUDIO 'B' DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A507",
+                        "ACCESSIBLE ONE BEDROOM STUDIO ROLL-IN",
+                        "",
+                        "extracted_sheets\\A507_ACCESSIBLE_ONE_BEDROOM_STUDIO_ROLL-IN.pdf",
+                        "1",
+                        "A507 ACCESSIBLE ONE BEDROOM STUDIO ROLL-IN DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A508",
+                        "ACCESSIBLE ONE BEDROOM STUDIO",
+                        "",
+                        "extracted_sheets\\A508_ACCESSIBLE_ONE_BEDROOM_STUDIO.pdf",
+                        "1",
+                        "A508 ACCESSIBLE ONE BEDROOM STUDIO DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A509",
+                        "GUEST BATHROOM ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A509_GUEST_BATHROOM_ELEVATIONS.pdf",
+                        "1",
+                        "A509 GUEST BATHROOM ELEVATIONS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "DETAILS & OVERALL",
+                        "A510",
+                        "GUEST BATHROOM BLOCKING DIAGRAMS",
+                        "",
+                        "extracted_sheets\\A510_GUEST_BATHROOM_BLOCKING_DIAGRAMS.pdf",
+                        "1",
+                        "A510 GUEST BATHROOM BLOCKING DIAGRAMS DETAILS & OVERALL ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A601",
+                        "CASEWORK ELEVATIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A601_CASEWORK_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A601 CASEWORK ELEVATIONS AND DETAILS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A602",
+                        "CASEWORK ELEVATIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A602_CASEWORK_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A602 CASEWORK ELEVATIONS AND DETAILS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A603",
+                        "CASEWORK ELEVATIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A603_CASEWORK_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A603 CASEWORK ELEVATIONS AND DETAILS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A604",
+                        "CASEWORK ELEVATIONS AND DETAILS",
+                        "",
+                        "extracted_sheets\\A604_CASEWORK_ELEVATIONS_AND_DETAILS.pdf",
+                        "1",
+                        "A604 CASEWORK ELEVATIONS AND DETAILS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A605",
+                        "FRONT DESK PLAN ELEVATIONS",
+                        "",
+                        "extracted_sheets\\A605_FRONT_DESK_PLAN_ELEVATIONS.pdf",
+                        "1",
+                        "A605 FRONT DESK PLAN ELEVATIONS INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "WALL DETAILS",
+                        "A606",
+                        "FRONT DESK SECTIONS AND BACK WALL DTLS",
+                        "",
+                        "extracted_sheets\\A606_FRONT_DESK_SECTIONS_AND_BACK_WALL_DTLS.pdf",
+                        "1",
+                        "A606 FRONT DESK SECTIONS AND BACK WALL DTLS WALL DETAILS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "INTERIOR ELEVATIONS",
+                        "A607",
+                        "BREAKFAST PERCH PLAN AND ELEVATION",
+                        "",
+                        "extracted_sheets\\A607_BREAKFAST_PERCH_PLAN_AND_ELEVATION.pdf",
+                        "1",
+                        "A607 BREAKFAST PERCH PLAN AND ELEVATION INTERIOR ELEVATIONS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "A701",
+                        "DOOR SCHEDULE",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\A701_DOOR_SCHEDULE.pdf",
+                        "1",
+                        "A701 DOOR SCHEDULE SCHEDULES & LEGENDS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "A702",
+                        "ROOM FINISH SCHEDULE & WINDOW TYPES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\A702_ROOM_FINISH_SCHEDULE_AND_WINDOW_TYPES.pdf",
+                        "1",
+                        "A702 ROOM FINISH SCHEDULE & WINDOW TYPES SCHEDULES & LEGENDS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A801A",
+                        "ENLARGED FIRST FLOOR REFLECTED CEILING PLAN",
+                        "",
+                        "extracted_sheets\\A801A_ENLARGED_FIRST_FLOOR_REFLECTED_CEILING_PLAN.pdf",
+                        "1",
+                        "A801A ENLARGED FIRST FLOOR REFLECTED CEILING PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A801B",
+                        "ENLARGED FIRST FLOOR REFLECTED CEILING PLAN",
+                        "",
+                        "extracted_sheets\\A801B_ENLARGED_FIRST_FLOOR_REFLECTED_CEILING_PLAN.pdf",
+                        "1",
+                        "A801B ENLARGED FIRST FLOOR REFLECTED CEILING PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "CEILING PLANS",
+                        "A801C",
+                        "ENLARGED FIRST FLOOR RCP & DETAILS",
+                        "",
+                        "extracted_sheets\\A801C_ENLARGED_FIRST_FLOOR_RCP_AND_DETAILS.pdf",
+                        "1",
+                        "A801C ENLARGED FIRST FLOOR RCP & DETAILS CEILING PLANS ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A802",
+                        "SECOND FLOOR REFLECTED CEILING PLAN",
+                        "",
+                        "extracted_sheets\\A802_SECOND_FLOOR_REFLECTED_CEILING_PLAN.pdf",
+                        "1",
+                        "A802 SECOND FLOOR REFLECTED CEILING PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A803",
+                        "THIRD FLOOR REFLECTED CEILING PLAN",
+                        "",
+                        "extracted_sheets\\A803_THIRD_FLOOR_REFLECTED_CEILING_PLAN.pdf",
+                        "1",
+                        "A803 THIRD FLOOR REFLECTED CEILING PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A804",
+                        "FOURTH FLOOR REFLECTED CEILING PLAN",
+                        "",
+                        "extracted_sheets\\A804_FOURTH_FLOOR_REFLECTED_CEILING_PLAN.pdf",
+                        "1",
+                        "A804 FOURTH FLOOR REFLECTED CEILING PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A901",
+                        "ENLARGED FIRST FLOOR FF&E PLAN",
+                        "",
+                        "extracted_sheets\\A901_ENLARGED_FIRST_FLOOR_FFANDE_PLAN.pdf",
+                        "1",
+                        "A901 ENLARGED FIRST FLOOR FF&E PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A902",
+                        "ENLARGED FIRST FLOOR FF&E PLAN",
+                        "",
+                        "extracted_sheets\\A902_ENLARGED_FIRST_FLOOR_FFANDE_PLAN.pdf",
+                        "1",
+                        "A902 ENLARGED FIRST FLOOR FF&E PLAN FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "FLOOR PLAN",
+                        "A903",
+                        "ENLARGED FIRST & UPPER FLOOR FF&E PLANS",
+                        "",
+                        "extracted_sheets\\A903_ENLARGED_FIRST_AND_UPPER_FLOOR_FFANDE_PLANS.pdf",
+                        "1",
+                        "A903 ENLARGED FIRST & UPPER FLOOR FF&E PLANS FLOOR PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "ARCHITECTURAL (A-Sheets)",
+                        "SITE PLAN",
+                        "K100",
+                        "KITCHEN EQUIPMENT PLAN",
+                        "",
+                        "extracted_sheets\\K100_KITCHEN_EQUIPMENT_PLAN.pdf",
+                        "1",
+                        "K100 KITCHEN EQUIPMENT PLAN SITE PLAN ARCHITECTURAL (A-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "P001",
+                        "PLUMBING NOTES AND SCHEDULES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\P001_PLUMBING_NOTES_AND_SCHEDULES.pdf",
+                        "1",
+                        "P001 PLUMBING NOTES AND SCHEDULES SCHEDULES & LEGENDS PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "DETAILS & OVERALL",
+                        "P002",
+                        "PLUMBING DETAILS",
+                        "",
+                        "extracted_sheets\\P002_PLUMBING_DETAILS.pdf",
+                        "1",
+                        "P002 PLUMBING DETAILS DETAILS & OVERALL PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "DETAILS & OVERALL",
+                        "P003",
+                        "WATER RISER DIAGRAMS",
+                        "",
+                        "extracted_sheets\\P003_WATER_RISER_DIAGRAMS.pdf",
+                        "1",
+                        "P003 WATER RISER DIAGRAMS DETAILS & OVERALL PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "DETAILS & OVERALL",
+                        "P004",
+                        "SANITARY RISER DIAGRAMS",
+                        "",
+                        "extracted_sheets\\P004_SANITARY_RISER_DIAGRAMS.pdf",
+                        "1",
+                        "P004 SANITARY RISER DIAGRAMS DETAILS & OVERALL PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "DETAILS & OVERALL",
+                        "P005",
+                        "SANITARY RISER DIAGRAMS",
+                        "",
+                        "extracted_sheets\\P005_SANITARY_RISER_DIAGRAMS.pdf",
+                        "1",
+                        "P005 SANITARY RISER DIAGRAMS DETAILS & OVERALL PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P101",
+                        "FIRST FLOOR PLUMBING PLAN",
+                        "",
+                        "extracted_sheets\\P101_FIRST_FLOOR_PLUMBING_PLAN.pdf",
+                        "1",
+                        "P101 FIRST FLOOR PLUMBING PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P102",
+                        "FIRST FLOOR SANITARY PLAN",
+                        "",
+                        "extracted_sheets\\P102_FIRST_FLOOR_SANITARY_PLAN.pdf",
+                        "1",
+                        "P102 FIRST FLOOR SANITARY PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P201",
+                        "SECOND FLOOR PLUMBING PLAN",
+                        "",
+                        "extracted_sheets\\P201_SECOND_FLOOR_PLUMBING_PLAN.pdf",
+                        "1",
+                        "P201 SECOND FLOOR PLUMBING PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P202",
+                        "SECOND FLOOR SANITARY PLAN",
+                        "",
+                        "extracted_sheets\\P202_SECOND_FLOOR_SANITARY_PLAN.pdf",
+                        "1",
+                        "P202 SECOND FLOOR SANITARY PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P301",
+                        "THIRD FLOOR PLUMBING PLAN",
+                        "",
+                        "extracted_sheets\\P301_THIRD_FLOOR_PLUMBING_PLAN.pdf",
+                        "1",
+                        "P301 THIRD FLOOR PLUMBING PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P302",
+                        "THIRD FLOOR SANITARY PLAN",
+                        "",
+                        "extracted_sheets\\P302_THIRD_FLOOR_SANITARY_PLAN.pdf",
+                        "1",
+                        "P302 THIRD FLOOR SANITARY PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P401",
+                        "FOURTH FLOOR PLUMBING PLAN",
+                        "",
+                        "extracted_sheets\\P401_FOURTH_FLOOR_PLUMBING_PLAN.pdf",
+                        "1",
+                        "P401 FOURTH FLOOR PLUMBING PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "FLOOR PLAN",
+                        "P402",
+                        "FOURTH FLOOR SANITARY PLAN",
+                        "",
+                        "extracted_sheets\\P402_FOURTH_FLOOR_SANITARY_PLAN.pdf",
+                        "1",
+                        "P402 FOURTH FLOOR SANITARY PLAN FLOOR PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "PLUMBING (P-Sheets)",
+                        "SITE PLAN",
+                        "P502",
+                        "ROOF SANITARY PLAN",
+                        "",
+                        "extracted_sheets\\P502_ROOF_SANITARY_PLAN.pdf",
+                        "1",
+                        "P502 ROOF SANITARY PLAN SITE PLAN PLUMBING (P-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "M001",
+                        "MECHANICAL SCHEDULES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\M001_MECHANICAL_SCHEDULES.pdf",
+                        "1",
+                        "M001 MECHANICAL SCHEDULES SCHEDULES & LEGENDS MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "DETAILS & OVERALL",
+                        "M002",
+                        "MECHANICAL DETAILS",
+                        "",
+                        "extracted_sheets\\M002_MECHANICAL_DETAILS.pdf",
+                        "1",
+                        "M002 MECHANICAL DETAILS DETAILS & OVERALL MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "DETAILS & OVERALL",
+                        "M003",
+                        "MECHANICAL NOTES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\M003_MECHANICAL_NOTES.pdf",
+                        "1",
+                        "M003 MECHANICAL NOTES DETAILS & OVERALL MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M101",
+                        "FIRST FLOOR MECHANICAL PLAN",
+                        "",
+                        "extracted_sheets\\M101_FIRST_FLOOR_MECHANICAL_PLAN.pdf",
+                        "1",
+                        "M101 FIRST FLOOR MECHANICAL PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M201",
+                        "SECOND FLOOR MECHANICAL PLAN",
+                        "",
+                        "extracted_sheets\\M201_SECOND_FLOOR_MECHANICAL_PLAN.pdf",
+                        "1",
+                        "M201 SECOND FLOOR MECHANICAL PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M301",
+                        "THIRD FLOOR MECHANICAL PLAN",
+                        "",
+                        "extracted_sheets\\M301_THIRD_FLOOR_MECHANICAL_PLAN.pdf",
+                        "1",
+                        "M301 THIRD FLOOR MECHANICAL PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M401",
+                        "FOURTH FLOOR MECHANICAL PLAN",
+                        "",
+                        "extracted_sheets\\M401_FOURTH_FLOOR_MECHANICAL_PLAN.pdf",
+                        "1",
+                        "M401 FOURTH FLOOR MECHANICAL PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M402",
+                        "FOURTH FLOOR EXHAUST PLAN",
+                        "",
+                        "extracted_sheets\\M402_FOURTH_FLOOR_EXHAUST_PLAN.pdf",
+                        "1",
+                        "M402 FOURTH FLOOR EXHAUST PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "SITE PLAN",
+                        "M501",
+                        "ROOF MECHANICAL PLAN",
+                        "",
+                        "extracted_sheets\\M501_ROOF_MECHANICAL_PLAN.pdf",
+                        "1",
+                        "M501 ROOF MECHANICAL PLAN SITE PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "FLOOR PLAN",
+                        "M601",
+                        "FIRST FLOOR GAS PLAN",
+                        "",
+                        "extracted_sheets\\M601_FIRST_FLOOR_GAS_PLAN.pdf",
+                        "1",
+                        "M601 FIRST FLOOR GAS PLAN FLOOR PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "MECHANICAL (M-Sheets)",
+                        "SITE PLAN",
+                        "M602",
+                        "ROOF GAS PLAN",
+                        "",
+                        "extracted_sheets\\M602_ROOF_GAS_PLAN.pdf",
+                        "1",
+                        "M602 ROOF GAS PLAN SITE PLAN MECHANICAL (M-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "DETAILS & OVERALL",
+                        "E001",
+                        "ELECTRICAL NOTES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\E001_ELECTRICAL_NOTES.pdf",
+                        "1",
+                        "E001 ELECTRICAL NOTES DETAILS & OVERALL ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "DETAILS & OVERALL",
+                        "E002",
+                        "ELECTRICAL RISER DIAGRAMS",
+                        "",
+                        "extracted_sheets\\E002_ELECTRICAL_RISER_DIAGRAMS.pdf",
+                        "1",
+                        "E002 ELECTRICAL RISER DIAGRAMS DETAILS & OVERALL ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E101",
+                        "FIRST FLOOR POWER PLAN",
+                        "",
+                        "extracted_sheets\\E101_FIRST_FLOOR_POWER_PLAN.pdf",
+                        "1",
+                        "E101 FIRST FLOOR POWER PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E102A",
+                        "ENLARGED FIRST FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E102A_ENLARGED_FIRST_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E102A ENLARGED FIRST FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E102B",
+                        "ENLARGED FIRST FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E102B_ENLARGED_FIRST_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E102B ENLARGED FIRST FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E102C",
+                        "ENLARGED FIRST FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E102C_ENLARGED_FIRST_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E102C ENLARGED FIRST FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E201",
+                        "SECOND FLOOR POWER PLAN",
+                        "",
+                        "extracted_sheets\\E201_SECOND_FLOOR_POWER_PLAN.pdf",
+                        "1",
+                        "E201 SECOND FLOOR POWER PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E202",
+                        "SECOND FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E202_SECOND_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E202 SECOND FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E301",
+                        "THIRD FLOOR POWER PLAN",
+                        "",
+                        "extracted_sheets\\E301_THIRD_FLOOR_POWER_PLAN.pdf",
+                        "1",
+                        "E301 THIRD FLOOR POWER PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E302",
+                        "THIRD FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E302_THIRD_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E302 THIRD FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E401",
+                        "FOURTH FLOOR POWER PLAN",
+                        "",
+                        "extracted_sheets\\E401_FOURTH_FLOOR_POWER_PLAN.pdf",
+                        "1",
+                        "E401 FOURTH FLOOR POWER PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "FLOOR PLAN",
+                        "E402",
+                        "FOURTH FLOOR LIGHTING PLAN",
+                        "",
+                        "extracted_sheets\\E402_FOURTH_FLOOR_LIGHTING_PLAN.pdf",
+                        "1",
+                        "E402 FOURTH FLOOR LIGHTING PLAN FLOOR PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "SITE PLAN",
+                        "E501",
+                        "ROOF POWER PLAN",
+                        "",
+                        "extracted_sheets\\E501_ROOF_POWER_PLAN.pdf",
+                        "1",
+                        "E501 ROOF POWER PLAN SITE PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "SITE PLAN",
+                        "E701",
+                        "GUESTROOM ELECTRICAL PLANS",
+                        "",
+                        "extracted_sheets\\E701_GUESTROOM_ELECTRICAL_PLANS.pdf",
+                        "1",
+                        "E701 GUESTROOM ELECTRICAL PLANS SITE PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "SITE PLAN",
+                        "E702",
+                        "GUESTROOM ELECTRICAL PLANS",
+                        "",
+                        "extracted_sheets\\E702_GUESTROOM_ELECTRICAL_PLANS.pdf",
+                        "1",
+                        "E702 GUESTROOM ELECTRICAL PLANS SITE PLAN ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "E800",
+                        "PANEL SCHEDULES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\E800_PANEL_SCHEDULES.pdf",
+                        "1",
+                        "E800 PANEL SCHEDULES SCHEDULES & LEGENDS ELECTRICAL (E-SHEETS)"
+            ],
+            [
+                        "ELECTRICAL (E-Sheets)",
+                        "SCHEDULES & LEGENDS",
+                        "E801",
+                        "PANEL SCHEDULES",
+                        "Contains tabular specifications and schedule matrices configuration limits.",
+                        "extracted_sheets\\E801_PANEL_SCHEDULES.pdf",
+                        "1",
+                        "E801 PANEL SCHEDULES SCHEDULES & LEGENDS ELECTRICAL (E-SHEETS)"
+            ]
+];
+        
+        const COL_CATEGORY = 0;
+        const COL_SUBCATEGORY = 1;
+        const COL_SHORTNAME = 2;
+        const COL_NAME = 3;
+        const COL_DESCRIPTION = 4;
+        const COL_FILENAME = 5;
+        const COL_PAGENUMBER = 6;
+        const COL_SEARCHPOOL = 7;
+
+        function parseAndGroupData(data) {
+            const rows = data.slice(1);
+            const grouped = {};
+            let lastCategory = '';
+            let lastSubcategory = '';
+            let currentFilename = '';
+
+            rows.forEach(row => {
+                const item = {
+                    category: row[COL_CATEGORY],
+                    subcategory: row[COL_SUBCATEGORY],
+                    shortname: row[COL_SHORTNAME],
+                    name: row[COL_NAME],
+                    description: row[COL_DESCRIPTION],
+                    filename: row[COL_FILENAME],
+                    pagenumber: row[COL_PAGENUMBER],
+                    searchpool: row[COL_SEARCHPOOL]
+                };
+
+                if (item.category !== lastCategory || item.subcategory !== lastSubcategory) { currentFilename = ''; }
+                if (item.filename) { currentFilename = item.filename; } else { item.filename = currentFilename; }
+
+                if (!grouped[item.category]) { grouped[item.category] = {}; }
+                if (!grouped[item.category][item.subcategory]) { grouped[item.category][item.subcategory] = []; }
+                grouped[item.category][item.subcategory].push(item);
+
+                lastCategory = item.category;
+                lastSubcategory = item.subcategory;
+            });
+            return grouped;
+        }
+
+        const drawingDataGrouped = parseAndGroupData(rawSpreadsheetData);
+
+        function buildDrawingIndex() {
+            const container = document.getElementById('drawing-container');
+            container.innerHTML = '';
+
+            for (const category in drawingDataGrouped) {
+                const categoryId = category.replace(/\s+/g, '-').toLowerCase();
+                const sectionWrapper = document.createElement('div');
+                sectionWrapper.className = 'bg-gray-800 rounded-lg border border-gray-700 overflow-hidden mb-4 section-wrapper-block';
+                
+                const sectionHeader = document.createElement('div');
+                sectionHeader.className = 'section-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-700';
+                sectionHeader.innerHTML = `<h2 class="text-xl font-semibold text-blue-300">${category}</h2>
+                                           <svg class="w-6 h-6 text-blue-300 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+                
+                const sectionContent = document.createElement('div');
+                sectionContent.id = `content-${categoryId}`;
+                sectionContent.className = 'section-content px-4 pb-4 bg-gray-850';
+
+                sectionHeader.onclick = () => {
+                    sectionContent.classList.toggle('active');
+                    sectionHeader.classList.toggle('active');
+                };
+
+                Object.keys(drawingDataGrouped[category]).sort().forEach((subcategoryTitle) => {
+                    const subcatItems = drawingDataGrouped[category][subcategoryTitle];
+                    const subgroupSection = document.createElement('div');
+                    subgroupSection.className = 'subgroup-section-block mt-4 pt-4 border-t border-gray-700';
+                    
+                    subgroupSection.innerHTML = `<h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">${subcategoryTitle}</h4>`;
+                    
+                    const drawingList = document.createElement('div');
+                    drawingList.className = 'space-y-2';
+
+                    subcatItems.forEach(sheet => {
+                        const drawingItemWrapper = document.createElement('div');
+                        drawingItemWrapper.className = 'drawing-item-wrapper bg-gray-700/40 p-3 rounded-lg border border-gray-700/50 hover:bg-gray-700/70 transition';
+                        
+                        drawingItemWrapper.setAttribute('data-searchpool', sheet.searchpool);
+
+                        drawingItemWrapper.innerHTML = `
+                            <div class="flex justify-between items-start">
+                                <div class="text-gray-200">
+                                    <strong class="font-mono bg-gray-900 text-blue-400 px-2 py-0.5 rounded text-sm">${sheet.shortname}</strong>
+                                    <span class="ml-2 font-medium tracking-wide text-gray-100">${sheet.name}</span>
+                                    ${sheet.description ? `<p class="text-xs text-gray-400 mt-1.5 bg-gray-800/50 p-2 rounded border border-gray-700/30">${sheet.description}</p>` : ''}
+                                </div>
+                                <a href="${sheet.filename}" target="_blank" class="ml-4 text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white py-1.5 px-3.5 rounded shadow transition shrink-0">Open Sheet</a>
+                            </div>`;
+                        drawingList.appendChild(drawingItemWrapper);
+                    });
+                    
+                    subgroupSection.appendChild(drawingList);
+                    sectionContent.appendChild(subgroupSection);
+                });
+                
+                sectionWrapper.appendChild(sectionHeader);
+                sectionWrapper.appendChild(sectionContent);
+                container.appendChild(sectionWrapper);
+            }
+        }
+
+        function filterDrawings() {
+            const filter = document.getElementById('searchInput').value.toUpperCase();
+            const sections = document.querySelectorAll('.section-wrapper-block');
+            
+            sections.forEach(section => {
+                let sectionHasVisibleContent = false;
+                const subgroups = section.querySelectorAll('.subgroup-section-block');
+                
+                subgroups.forEach(subgroup => {
+                    let subgroupHasVisibleContent = false;
+                    const wrappers = subgroup.querySelectorAll('.drawing-item-wrapper');
+                    
+                    wrappers.forEach(wrapper => {
+                        const searchPoolText = wrapper.getAttribute('data-searchpool') || '';
+                        
+                        if (searchPoolText.indexOf(filter) > -1) {
+                            wrapper.style.display = "";
+                            subgroupHasVisibleContent = true;
+                            sectionHasVisibleContent = true;
+                        } else {
+                            wrapper.style.display = "none";
+                        }
+                    });
+                    subgroup.style.display = subgroupHasVisibleContent ? "" : "none";
+                });
+
+                const content = section.querySelector('.section-content');
+                const header = section.querySelector('.section-header');
+                
+                if (filter === "") {
+                    section.style.display = "";
+                    content.classList.remove('active');
+                    header.classList.remove('active');
+                } else {
+                    if (sectionHasVisibleContent) {
+                        section.style.display = "";
+                        content.classList.add('active');
+                        header.classList.add('active');
+                    } else {
+                        section.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', buildDrawingIndex);
+    </script>
+</body>
+</html>
