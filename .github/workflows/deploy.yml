@@ -1,0 +1,36 @@
+name: Compile and Deploy PDF Index
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'drawings/**' # Only trigger when files inside the drawings folder change
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PDF Library
+        run: pip install pypdf
+
+      - name: Execute Webpage Compiler
+        run: python generate_page.py
+
+      - name: Commit Updated Index File
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff-index --quiet HEAD || (git commit -m "Automated update: Refreshed drawing index" && git push)
