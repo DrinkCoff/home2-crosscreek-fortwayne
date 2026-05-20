@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Index</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+    <div class="max-w-4xl mx-auto py-12 px-4">
+        <header class="mb-8">
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Project Drawings</h1>
+            <p class="text-slate-500 mt-1">Total Indexed Sheets: <span class="font-semibold text-slate-700">126</span></p>
+        </header>
+        <div class="mb-6">
+            <input type="text" id="searchInput" onkeyup="filterDrawings()" placeholder="Search sheets..." class="w-full px-4 py-3 rounded-lg border border-slate-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+        </div>
+        <main class="bg-white shadow-sm rounded-xl border border-slate-200 overflow-hidden">
+            <ul id="drawingsList" class="divide-y divide-slate-100">
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 1</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_1.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_1.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 2</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_2.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_2.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 3</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_3.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_3.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 4</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_4.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_4.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 5</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_5.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_5.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 6</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_6.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_6.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 7</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_7.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_7.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 8</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_8.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_8.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 9</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_9.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_9.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 10</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_10.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_10.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 11</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_11.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_11.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 12</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_12.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_12.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 13</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_13.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_13.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 14</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_14.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_14.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 15</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_15.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_15.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 16</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_16.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_16.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 17</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_17.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_17.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 18</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_18.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_18.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 19</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_19.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_19.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 20</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_20.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_20.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 21</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_21.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_21.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 22</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_22.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_22.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 23</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_23.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_23.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 24</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_24.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_24.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 25</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_25.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_25.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 26</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_26.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_26.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 27</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_27.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_27.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 28</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_28.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_28.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 29</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_29.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_29.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 30</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_30.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_30.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 31</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_31.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_31.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 32</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_32.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_32.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 33</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_33.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_33.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 34</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_34.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_34.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 35</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_35.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_35.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 36</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_36.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_36.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 37</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_37.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_37.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 38</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_38.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_38.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 39</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_39.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_39.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 40</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_40.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_40.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 41</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_41.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_41.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 42</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_42.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_42.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 43</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_43.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_43.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 44</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_44.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_44.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 45</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_45.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_45.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 46</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_46.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_46.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 47</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_47.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_47.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 48</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_48.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_48.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 49</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_49.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_49.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 50</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_50.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_50.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 51</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_51.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_51.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 52</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_52.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_52.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 53</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_53.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_53.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 54</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_54.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_54.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 55</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_55.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_55.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 56</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_56.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_56.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 57</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_57.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_57.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 58</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_58.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_58.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 59</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_59.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_59.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 60</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_60.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_60.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 61</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_61.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_61.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 62</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_62.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_62.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 63</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_63.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_63.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 64</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_64.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_64.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 65</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_65.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_65.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 66</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_66.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_66.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 67</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_67.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_67.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 68</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_68.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_68.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 69</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_69.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_69.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 70</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_70.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_70.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 71</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_71.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_71.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 72</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_72.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_72.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 73</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_73.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_73.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 74</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_74.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_74.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 75</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_75.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_75.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 76</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_76.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_76.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 77</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_77.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_77.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 78</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_78.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_78.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 79</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_79.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_79.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 80</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_80.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_80.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 81</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_81.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_81.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 82</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_82.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_82.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 83</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_83.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_83.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 84</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_84.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_84.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 85</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_85.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_85.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 86</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_86.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_86.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 87</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_87.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_87.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 88</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_88.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_88.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 89</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_89.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_89.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 90</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_90.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_90.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 91</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_91.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_91.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 92</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_92.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_92.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 93</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_93.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_93.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 94</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_94.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_94.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 95</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_95.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_95.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 96</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_96.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_96.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 97</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_97.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_97.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 98</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_98.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_98.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 99</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_99.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_99.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 100</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_100.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_100.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 101</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_101.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_101.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 102</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_102.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_102.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 103</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_103.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_103.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 104</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_104.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_104.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 105</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_105.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_105.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 106</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_106.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_106.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 107</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_107.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_107.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 108</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_108.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_108.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 109</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_109.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_109.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 110</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_110.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_110.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 111</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_111.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_111.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 112</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_112.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_112.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 113</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_113.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_113.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 114</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_114.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_114.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 115</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_115.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_115.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 116</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_116.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_116.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 117</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_117.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_117.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 118</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_118.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_118.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 119</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_119.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_119.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 120</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_120.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_120.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 121</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_121.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_121.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 122</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_122.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_122.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 123</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_123.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_123.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 124</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_124.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_124.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 125</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_125.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_125.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li>
+                <li class="drawing-item p-4 hover:bg-slate-50 flex justify-between items-center transition">
+                    <div>
+                        <p class="font-semibold text-slate-900 drawing-title">Set 5-15-26 — Sheet 126</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Set 5-15-26_Sheet_126.pdf</p>
+                    </div>
+                    <a href="drawings/extracted_sheets/Set 5-15-26_Sheet_126.pdf" target="_blank" class="px-4 py-2 text-sm font-medium bg-white border border-slate-300 rounded-lg text-slate-700 hover:bg-slate-50 transition shadow-xs">Open Sheet</a>
+                </li></ul></main></div>
+    <script>
+    function filterDrawings() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const items = document.getElementsByClassName('drawing-item');
+        for (let i = 0; i < items.length; i++) {
+            const title = items[i].querySelector('.drawing-title').innerText;
+            items[i].style.display = title.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+        }
+    }
+    </script>
+</body></html>
